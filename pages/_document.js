@@ -11,6 +11,18 @@ const normalizeNextElements = `
   }
 `
 
+const reactNativeIcon = `
+  @font-face {
+    font-family: 'MaterialIcons';
+    src: url(${require('react-native-vector-icons/Fonts/MaterialIcons.ttf')}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'FontAwesome';
+    src: url(${require('react-native-vector-icons/Fonts/FontAwesome.ttf')}) format('truetype');
+  }
+`
+
 export default class MyDocument extends Document {
   constructor() {
     super();
@@ -21,6 +33,7 @@ export default class MyDocument extends Document {
     const page = renderPage()
     const styles = [
       <style dangerouslySetInnerHTML={{ __html: normalizeNextElements }} />,
+      <style dangerouslySetInnerHTML={{ __html: reactNativeIcon }} />,
       getStyleElement(),
     ]
     return { ...page, styles: React.Children.toArray(styles) }
